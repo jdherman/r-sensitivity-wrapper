@@ -33,7 +33,7 @@ Some notes:
 * `<columnNumber>` starts at 1, not 0. If you do not provide a column number, the default is 1
    
 The full process would look something like this:
-```
+```bash
 module load R
 
 # Perform sampling
