@@ -3,17 +3,21 @@ Command-line wrapper for the R Sensitivity Analysis Library
 (To be used for Sobol, Method of Morris, and FAST Methods)
 ---------------------------------------------------
 
-Note: you must have the sensitivity library installed for this to work. You can get the library here: http://cran.r-project.org/web/packages/sensitivity/index.html. For more detailed installation instructions, see: http://waterprogramming.wordpress.com/2012/09/19/starting-out-with-the-r-sensitivity-package/.
+Note: you must have the sensitivity library installed for this to work. You can get the library [here](http://cran.r-project.org/web/packages/sensitivity/index.html). For more detailed installation instructions, see [this post](http://waterprogramming.wordpress.com/2012/09/19/starting-out-with-the-r-sensitivity-package/).
 
 Parameter files should be created with 3 columns, name, lower bound, and upper bound, e.g.:
+```
 P1 0.0 1.0
 P2 0.0 5.0
 ...etc.
+```
 
 Contents: 
 
-1. sampler.R - generate parameter samples. Example:
+* `sampler.R`: generate parameter samples. Example:
+```
    Rscript --vanilla --slave sampler.R <method> <N> <parameterFile> > <sampleFile>
+```
 
 2. analyzer.R - perform sensitivity analysis on model results
    Rscript --vanilla --slave analyzer.R <method> <N> <parameterFile> <modelOutputFile> <columnNumber> > <resultsFile>
