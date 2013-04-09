@@ -40,7 +40,7 @@ module load R
 Rscript --vanilla --slave sampler.R ${METHOD} ${N} ${PARAM_FILE} > ${NAME}.samples
 
 # Run the model executable with these samples (assuming the model receives parameters over stdin and prints output to stdout, your mileage may vary).
-./myModel < {NAME}.samples > ${NAME}.modelout
+./myModel < ${NAME}.samples > ${NAME}.modelout
 
 # Perform the sensitivity analysis using this model output (column 1)
 Rscript --vanilla --slave analyzer.R ${METHOD} ${N} ${PARAM_FILE} ${NAME}.modelout 1 > ${NAME}.results
