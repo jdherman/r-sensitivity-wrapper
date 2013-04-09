@@ -1,7 +1,5 @@
-Command-line wrapper for the R Sensitivity Analysis Library
-=========================================================
-(To be used for Sobol, Method of Morris, and FAST Methods)
----------------------------------------------------
+## Command-line wrapper for the R Sensitivity Analysis Library
+### (To be used with Sobol, Method of Morris, and FAST Methods)
 
 Note: you must have the sensitivity library installed for this to work. You can get the library [here](http://cran.r-project.org/web/packages/sensitivity/index.html). For more detailed installation instructions, see [this post](http://waterprogramming.wordpress.com/2012/09/19/starting-out-with-the-r-sensitivity-package/).
 
