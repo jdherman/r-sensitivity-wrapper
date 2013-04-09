@@ -14,37 +14,34 @@ P2 0.0 5.0
 
 Contents: 
 
-* `sampler.R`: generate parameter samples. Example:
+* `sampler.R`: generate parameter samples. Example usage:
 ```
    Rscript --vanilla --slave sampler.R <method> <N> <parameterFile> > <sampleFile>
 ```
 
-2. analyzer.R - perform sensitivity analysis on model results
+* `analyzer.R`: perform sensitivity analysis on model results. Example:
+```
    Rscript --vanilla --slave analyzer.R <method> <N> <parameterFile> <modelOutputFile> <columnNumber> > <resultsFile>
-	
-   Some notes:
-   - For each of the above files, <method> can be "sobol", "morris", or "fast"
-   - <N> is the number of original samples, which is not the same as the number of parameter sets in sampleFile
-     (these are multiplied approximately by a factor of P, where there are P parameters)
-   - By default, samples and results will be printed to stdout. In the examples above they are piped into files.
-   - <columnNumber> starts at 1, not 0. If you do not provide a column number, the default is 1
+```
    
-3. Sobol-G Function and other test functions
-   These are included just for examples of performing decoupled sensitivity analysis. On the cluster, the full process would look like this:
+* Sobol-G Function and other test functions. These are included just for examples of performing decoupled sensitivity analysis. (Sampling -> Evaluations -> Analysis).
    
-   module load R
+Some notes:
+* For each of the above files, `<method>` can be `sobol`, `morris`, or `fast`. Each of these gives a different output format during the analysis step.
+* `<N>` is the number of original samples, which is not the same as the number of parameter sets in `sampleFile` (these are multiplied approximately by a factor of P, where there are P parameters)
+* By default, samples and results will be printed to stdout. In the examples above they are piped into files.
+* `<columnNumber>` starts at 1, not 0. If you do not provide a column number, the default is 1
    
-   # Perform sampling
-   Rscript --vanilla --slave sampler.R ${METHOD} ${N} ${PARAM_FILE} > ${NAME}.samples
-   
-   # Run the model executable with these samples (assuming the model receives parameters over stdin and prints output to stdout, your mileage may vary).
-   ./myModel < {NAME}.samples > ${NAME}.modelout
-   
-   # Perform the sensitivity analysis using this model output (column 1)
-   Rscript --vanilla --slave analyzer.R ${METHOD} ${N} ${PARAM_FILE} ${NAME}.modelout 1 > ${NAME}.results
-   
-   Some more notes:
-   - The results will print differently depending on the method used (Sobol, FAST, or Morris). 
-   - You may want to alias "Rscript --vanilla --slave" as something shorter, such as "rr".
-   - If you are using a large number of samples, R may run out of RAM and crash during the analysis phase.
-   
+The full process would look something like this:
+```
+module load R
+
+# Perform sampling
+Rscript --vanilla --slave sampler.R ${METHOD} ${N} ${PARAM_FILE} > ${NAME}.samples
+
+# Run the model executable with these samples (assuming the model receives parameters over stdin and prints output to stdout, your mileage may vary).
+./myModel < {NAME}.samples > ${NAME}.modelout
+
+# Perform the sensitivity analysis using this model output (column 1)
+Rscript --vanilla --slave analyzer.R ${METHOD} ${N} ${PARAM_FILE} ${NAME}.modelout 1 > ${NAME}.results
+```
