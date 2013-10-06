@@ -1,7 +1,11 @@
-## Command-line wrapper for the R Sensitivity Analysis Library
-### (To be used with Sobol, Method of Morris, and FAST Methods)
+### Command-line wrapper for the R Sensitivity Package
+#### (To be used with Sobol, Method of Morris, and FAST Methods)
 
-Note: you must have the sensitivity library installed for this to work. You can get the library [here](http://cran.r-project.org/web/packages/sensitivity/index.html). For more detailed installation instructions, see [this post](http://waterprogramming.wordpress.com/2012/09/19/starting-out-with-the-r-sensitivity-package/).
+Requires the R sensitivity package created by Pujols et al. You can get the package [here](http://cran.r-project.org/web/packages/sensitivity/index.html). For more detailed installation instructions, see [this post](http://waterprogramming.wordpress.com/2012/09/19/starting-out-with-the-r-sensitivity-package/).
+
+CLI wrapper developed for the following papers:
+Herman, J.D., J.B. Kollat, P.M. Reed, and T. Wagener. 2013. [From maps to movies: high resolution time-varying sensitivity analysis for spatially distributed watershed models](http://www.hydrol-earth-syst-sci-discuss.net/10/10775/2013/hessd-10-10775-2013.html). Hydrology and Earth System Sciences Discussions, 10, 10775–10808.
+Herman, J.D., J.B. Kollat, P.M. Reed, and T. Wagener. 2013. [Technical note: Method of Morris effectively reduces the computational demands of global sensitivity analysis for distributed watershed models](http://www.hydrol-earth-syst-sci.net/17/2893/2013/hess-17-2893-2013.html). Hydrology and Earth System Sciences, 17, 2893–2903.
 
 Parameter files should be created with 3 columns, name, lower bound, and upper bound, e.g.:
 ```
