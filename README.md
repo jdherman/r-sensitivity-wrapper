@@ -1,7 +1,7 @@
 ### Command-line wrapper for the R Sensitivity Package
 #### (To be used with Sobol, Method of Morris, and FAST Methods)
 
-Requires the R sensitivity package created by Pujols et al. You can get the package [here](http://cran.r-project.org/web/packages/sensitivity/index.html). For more detailed installation instructions, see [this post](http://waterprogramming.wordpress.com/2012/09/19/starting-out-with-the-r-sensitivity-package/).
+Requires the R sensitivity package created by Pujol et al. You can get the package [here](http://cran.r-project.org/web/packages/sensitivity/index.html). For more detailed installation instructions, see [this post](http://waterprogramming.wordpress.com/2012/09/19/starting-out-with-the-r-sensitivity-package/).
 
 CLI wrapper developed for the following papers:
 
